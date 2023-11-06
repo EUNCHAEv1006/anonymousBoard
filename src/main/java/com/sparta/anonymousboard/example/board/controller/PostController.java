@@ -30,8 +30,8 @@ public class PostController {
     }
 
     @PutMapping("/post/{postId}")
-    public Post updatePost(@PathVariable Long postId, @RequestBody Post post) {
-        return postService.updatePost(postId, post);
+    public Post updatePost(@PathVariable Long postId, @RequestParam String password, @RequestBody Post post) {
+        return postService.updatePost(postId, password, post);
     }
 
     @DeleteMapping("/post/{id}")
@@ -39,4 +39,3 @@ public class PostController {
         postService.deletePost(id, password);
     }
 }
-

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -15,27 +16,39 @@ public class PostService {
     private PostRepository postRepository;
 
     public Post createPost(Post post) {
-        // Implement post creation logic, including setting createdDate
+        post.setCreatedDate(LocalDateTime.now());
         return postRepository.save(post);
     }
 
     public Post getPostById(Long id) {
-        // Implement post retrieval logic
-        return postRepository.findById(id).orElse(null);
+        Post post = postRepository.findById(id).orElse(null);
+        if (post != null) {
+            post.setPassword(null);
+        }
+        return post;
     }
 
     public List<Post> getAllPosts() {
-        // Implement post retrieval logic, sorting by createdDate
-        return postRepository.findAll(Sort.by(Sort.Direction.DESC, "createdDate"));
+        List<Post> posts = postRepository.findAll(Sort.by(Sort.Direction.DESC, "createdDate"));
+        posts.forEach(post -> post.setPassword(null));
+        return posts;
     }
 
-    public Post updatePost(Long id, Post updatedPost) {
-        // Implement post update logic, including password validation
-        return postRepository.save(updatedPost);
+    public Post updatePost(Long id, String password, Post updatedPost) {
+        Post existingPost = postRepository.findById(id).orElse(null);
+        if (existingPost != null && existingPost.getPassword().equals(updatedPost.getPassword())) {
+            existingPost.setTitle(updatedPost.getTitle());
+            existingPost.setAuthor(updatedPost.getAuthor());
+            existingPost.setContent(updatedPost.getContent());
+            return postRepository.save(existingPost);
+        }
+        return null;
     }
 
     public void deletePost(Long id, String password) {
-        // Implement post deletion logic, including password validation
-        postRepository.deleteById(id);
+        Post existingPost = postRepository.findById(id).orElse(null);
+        if (existingPost != null && existingPost.getPassword().equals(password)) {
+            postRepository.deleteById(id);
+        }
     }
 }
