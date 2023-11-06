@@ -23,11 +23,12 @@
 
 
 ### Use Case Diagram
-![익명게시판usecase.png](..%2F..%2F..%2F%EC%9D%B5%EB%AA%85%EA%B2%8C%EC%8B%9C%ED%8C%90usecase.png)
+<img width="561" alt="익명게시판usecase" src="https://github.com/EUNCHAEv1006/anonymousBoard/assets/129070298/998f61ca-1382-441a-a1c4-9649f6f0f79d">
+
 
 
 ### ERD Diagram
-![erd.png](..%2F..%2F..%2Ferd.png)
+<img width="497" alt="erd" src="https://github.com/EUNCHAEv1006/anonymousBoard/assets/129070298/34954af6-b1b6-4d52-8c0b-8e2064208e7d">
 
 ### API
-![스크린샷 2023-11-06 오후 5.16.32.png](..%2F..%2F..%2F..%2F..%2F..%2Fvar%2Ffolders%2Fc2%2Fpv6qy8zn01713bpvmc1dx3b40000gn%2FT%2FTemporaryItems%2FNSIRD_screencaptureui_sy2qjk%2F%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202023-11-06%20%EC%98%A4%ED%9B%84%205.16.32.png)
+<img width="752" alt="스크린샷 2023-11-06 오후 5 18 29" src="https://github.com/EUNCHAEv1006/anonymousBoard/assets/129070298/4577b5d6-40a0-48e3-bff9-738fb03756d0">
